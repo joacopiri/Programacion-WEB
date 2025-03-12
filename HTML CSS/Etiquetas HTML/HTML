@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--en el head van los metadatos de la pagina-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Primera Página Web</title>
+  </head>
+  <body>
+    <!--aca ir el contenido de la pagina web  que sera visualizado por el usuario-->
+    <h1>Titulo</h1>
+    <h2>Subtitulo</h2>
+    <h3>Hola</h3>
+    <h4>Hola</h4>
+    <h5>Hola</h5>
+    <h6>Hola</h6>
+
+    <h2>Parrafos</h2>
+    <p>soy un parrafo</p>
+
+    <h2>Listas</h2>
+    <h3>Listas ordenadas</h3>
+    <ol>
+      <!--orderer list-->
+      <!--list item-->
+      <li>Elemento 1</li>
+      <li>Elemento 2</li>
+    </ol>
+    <h3>Listas no ordenadas</h3>
+    <ul>
+      <!--unorderer list-->
+      <!--list item-->
+      <li>Elemento 1</li>
+      <li>Elemento 2</li>
+    </ul>
+
+    <h2>Links</h2>
+    <a href="https://github.com/joacopiri/Programacion-WEB" target="_plank"
+      >Github</a
+    >
+    <h2>Imagenes</h2>
+    <img
+      src="https://1.bp.blogspot.com/-7Kug20Fkn58/VGdlZUcu4BI/AAAAAAAAAOo/IeEfRgnnnU4/s1600/frutilla.jpg"
+      alt="frutilla"
+    />
+
+    <h2>Botones</h2>
+    <button>soy un boton</button>
+
+    <h2>div</h2>
+    <div>soy un div</div>
+  </body>
+</html>
