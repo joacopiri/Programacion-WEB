@@ -1,0 +1,40 @@
+/*Comentarios*/
+
+/*Selectores*/
+
+/*Etiqueta*/
+/*modificamos direcatamente la etiqueta a la cual estamos apuntando */
+p {
+  color: #000000;
+}
+
+/*Clases*/
+.buttom-custom {
+  color: black;
+}
+
+/*ID*/
+#titulo {
+  color: black;
+}
+/*--------------------------------------------------------------------------------*/
+.contenedor {
+  color: rgb(0, 0, 0); /*color de la etiqueta*/
+  background-color: rgb(255, 255, 255); /*color del fondo*/
+  font-size: 40px; /*tamaño de la letra*/
+  font-family: Arial, Helvetica, sans-serif; /*tipografia*/
+  text-align: center; /*posicion de texto*/
+  border: #000000 solid 20px; /*caracteristicas de los bordes "color, transparecia y tamaño"*/
+  border-radius: 50px; /*redondea los bordes*/
+  width: 500px; /*configura el ancho de los bordes*/
+  height: 125px; /*configura el alto de los bordes*/
+}
+
+.button-div {
+  padding: 20px; /*distancia desde el elemento hasta los bordes*/
+  margin: 20px; /*distancia desde los bordes hasta el elemento*/
+}
+
+.contenedor-flexible {
+  display: flex;
+}
