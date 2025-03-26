@@ -6,7 +6,7 @@
 /*modificamos directamente la etiqueta
  a la cual estamos apuntando*/
 
- p {
+p {
   color: #000;
 }
 
@@ -39,5 +39,13 @@
 
 .contenedor-flexible {
   display: flex;
+  justify-content: baseline;
+  background-color: lightgrey;
+  padding: 20px;
 }
 
+.item-flexible {
+  background-color: grey;
+  padding: 20px;
+  margin: 0px 30px;
+}

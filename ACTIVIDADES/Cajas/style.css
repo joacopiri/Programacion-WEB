@@ -1,0 +1,42 @@
+.block {
+  display: block;
+  width: 100px;
+  height: 20px;
+  background-color: magenta;
+  text-align: center;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.en-linea {
+  display: inline;
+  width: 100px;
+  height: 20px;
+  background-color: lime;
+  text-align: center;
+  padding: 20px;
+  margin: 0px 5px;
+}
+
+.inline-block {
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  background-color: red;
+  text-align: center;
+  padding: 20px;
+  margin: 0px 5px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: blue;
+  padding: 20px;
+  margin: 0px 5px;
+}
