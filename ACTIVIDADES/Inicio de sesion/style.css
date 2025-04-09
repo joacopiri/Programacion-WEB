@@ -1,18 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; /*aling items solamente funciona si se aplico "flex direction"*/
+  background-color: #0e4c75;
+  height: 40vw;
+}
+
 .block {
   display: block;
   color: lightblue; /*modifica el color de la letra*/
-  background-color: blue; /*color de fondo*/
+  background-color: #3282b5; /*color de fondo*/
   font-size: 20px; /*tamaño de la letra*/
   font-family: Arial, Helvetica, sans-serif;
   text-align: center; /*alineacion texto*/
-  width: 300px; /*ancho*/
+  width: 350px; /*ancho*/
   height: 400px; /*alto*/
   padding-top: 5px;
+  border-radius: 5px; /*radio del borde*/
 }
 
 .input {
-  color: darkblue; /*modifica el color de la letra*/
-  font-size: 16px; /*tamaño de la letra*/
+  color: gray; /*modifica el color de la letra*/
+  font-size: 20px; /*tamaño de la letra*/
   font-family: Arial, Helvetica, sans-serif;
   margin: 5px 0px; /*separacion entre divs*/
+  width: 240px; /*ancho*/
+  height: 40px; /*alto*/
+  border-radius: 2px; /*radio del borde*/
+  padding-left: 10px;
+  border-width: 0;
+}
+
+.button {
+  color: #1a222d; /*modifica el color de la letra*/
+  background-color: #bbe1f8;
+  font-size: 20px; /*tamaño de la letra*/
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center; /*alineacion texto*/
+  margin: 20px 0px; /*separacion entre divs*/
+  width: 255px; /*ancho*/
+  height: 40px; /*alto*/
+  border-radius: 2px; /*radio del borde*/
+  padding: 0;
+  border-width: 0;
+}
+
+.links {
+  color: #86dafc; /*modifica el color de la letra*/
+  font-size: 15px; /*tamaño de la letra*/
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 0px; /*separacion entre divs*/
+  padding: 20px;
+  text-decoration: none;
 }
