@@ -1,0 +1,90 @@
+/*---------------------------------------------------*/
+body {
+  background-image: url("https://wallpapers.com/images/featured/pokemon-hd-fazqcs1tmwwte1ap.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+header {
+  text-align: center; /*alineacion texto*/
+  font-size: 20px; /*tamaño de la letra*/
+  background-color: white;
+  border-radius: 20px; /*radio del borde*/
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+/*---------------------------------------------------*/
+
+/*---------------------------------------------------*/
+.Bulbasaur {
+  background-color: greenyellow;
+  text-align: center; /*alineacion texto*/
+  border-radius: 20px; /*radio del borde*/
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.Bulbasaur:hover {
+  transform: translateY(-10px);
+}
+
+.Charmander {
+  background-color: orange;
+  text-align: center; /*alineacion texto*/
+  border-radius: 20px; /*radio del borde*/
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.Charmander:hover {
+  transform: translateY(-10px);
+}
+
+.Squirtle {
+  background-color: aquamarine;
+  text-align: center; /*alineacion texto*/
+  border-radius: 20px; /*radio del borde*/
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.Squirtle:hover {
+  transform: translateY(-10px);
+}
+
+.Reconocimiento {
+  text-align: center; /*alineacion texto*/
+  font-size: 20px; /*tamaño de la letra*/
+  background-color: white;
+  border-radius: 20px; /*radio del borde*/
+}
+/*---------------------------------------------------*/
+
+/*---------------------------------------------------*/
+.grilla {
+  display: grid;
+  /*grid-template-columns: 200px 200px 200px;*/
+  /*grid-template-columns: repeat(3, 200px);*/
+  /*grid-template-columns: repeat(auto-fill, minmax (200px, 1fr));*/
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /*fr es una fraccion 
+  y divide la pagina en la cantidad que diga el primer valor de la funcion*/
+  grid-auto-rows: auto;
+  gap: 10px;
+}
+
+@media (max-width: 1024px) {
+  .grilla {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grilla {
+    grid-template-columns: 1fr;
+  }
+}
+/*---------------------------------------------------*/
