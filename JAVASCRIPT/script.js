@@ -71,11 +71,11 @@ const saludo2 = (nombre) => `hola ${nombre}`;
 /*-------------------FUNCIONES--------------------------*/
 
 /*--------------------ARREGLOS--------------------------*/
-//Lista
+//Lista - en js se llama Array
 const MiArreglo = [1, 2, "naranja", true];
 console.log(MiArreglo[2]);
 
-//Diccionario
+//Diccionario - en js se llama OBJECT
 const MiObjeto = {
   clave: "valor",
   nombre: "Joaquin",
@@ -84,8 +84,15 @@ const MiObjeto = {
 };
 console.log(MiObjeto.naranja2);
 
-//iteamos una lista con for
+//el for sirve para iterar (recorrer un arreglo) de manera flexible definiendole
+//donde arranca, donde termina y la manera en la que va a ir recorriendo
 for (let i = 0; i < MiArreglo.length; i++) {
   console.log(MiArreglo[i]); //imprimi en pantalla el arreglo con su pocision
 }
+
+//forEach itera el arreglo completo y dentro recibe como parametro una funcion
+//con la cual podemos obtener el elemento y el indice (recorre de pricipio a final)
+MiArreglo.forEach((elemento, indice) => {
+  console.log("elemento", elemento, "indice", indice);
+});
 /*--------------------ARREGLOS--------------------------*/
