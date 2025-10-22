@@ -3,8 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 //import Formulario from './components/CapInput'
-import Efecto from './components/useEffect'
 import Texto from './components/useState'
+import Efecto1 from './components/useEffect'
+import Efecto2 from './components/useEffect-useState'
+import Conceptos from './components/todos-los-conceptos'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -47,8 +50,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Texto/>
-      <Efecto />
+      <Conceptos />
     </>
   )
 }
