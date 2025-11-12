@@ -39,19 +39,17 @@ function App() {
         <button onClick={handleClick}>buscar</button>
       </div>
 
-      <div className="div">
+      <div className="catalogo">
         {peliculas.Response === "True"
           ? peliculas.Search.map((pelicula, index) => (
-              <div key={index} className="peliculas">
-                <img
-                  src={pelicula.Poster}
-                  alt={pelicula.Title}
-                  style={{ width: "100px", height: "auto" }}
-                />
-                <div style={{ marginLeft: "20px" }}>
+              <div key={index} className="tarjetas">
+                <img src={pelicula.Poster} alt={pelicula.Title} />
+
+                <div className="informacion">
                   <h3>
                     {pelicula.Title} "{pelicula.Year}"
                   </h3>
+                  <button>Ver detalles</button>
                 </div>
               </div>
             ))
