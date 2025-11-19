@@ -20,6 +20,7 @@ h3 {
 
   padding-top: 5px;
   padding-bottom: 5px;
+
   border: solid 2px greenyellow;
   border-radius: 15px;
 
@@ -42,19 +43,27 @@ h3 {
   background-color: black;
 }
 
-img {
-  width: 100px;
-  height: auto;
+.contenedor-imagen{
+  width: 30%;
+  border: solid 2px purple;
   border-radius: 15px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 .informacion {
   text-align: left;
   margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 
   border: solid 2px red;
   border-radius: 15px;
 
-  width: 300px;
+  width: 70%;
   background-color: rgb(39, 37, 37);
 }

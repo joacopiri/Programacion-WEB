@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Detalles from "./components/detalles/Detalles";
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
   const [text, setText] = useState("");
   const [input, setInput] = useState("");
+  const [detalles, setDetalles] = useState(false)
 
   useEffect(() => {
     if (input.trim() === "") return;
@@ -25,6 +27,10 @@ function App() {
     setText(event.target.value);
   };
 
+  const verDetalles = () => {
+    setDetalles(true);
+  }; 
+
   return (
     <>
       <div>
@@ -38,23 +44,38 @@ function App() {
       <div className="div">
         <button onClick={handleClick}>buscar</button>
       </div>
+      
+      {peliculas.Response === "True" ? (
+        <div className="catalogo">
+         {peliculas.Search.map((pelicula, index) => (
+                <div>
+                  <div key={index} className="tarjetas">
+                    
+                    <img className="contenedor-imagen" src={pelicula.Poster} alt={pelicula.Title} />
 
-      <div className="catalogo">
-        {peliculas.Response === "True"
-          ? peliculas.Search.map((pelicula, index) => (
-              <div key={index} className="tarjetas">
-                <img src={pelicula.Poster} alt={pelicula.Title} />
+                    <div className="informacion">
+                      <h3>
+                        {pelicula.Title} "{pelicula.Year}"
+                      </h3>
 
-                <div className="informacion">
-                  <h3>
-                    {pelicula.Title} "{pelicula.Year}"
-                  </h3>
-                  <button>Ver detalles</button>
+                      <button hidden={detalles === true} onClick={verDetalles}>Ver detalles</button>
+                      
+                      {detalles === true && (
+                        <Detalles
+                          Type={pelicula.Type}
+                          imdbID={pelicula.imdbID}
+                        />
+                      )}  
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))
-          : ""}
-      </div>
+              ))}
+        </div>
+        ) : peliculas.Response === "False" && (
+          <div className="catalogo">
+            <h3>No se encontraron peliculas...</h3>
+          </div>
+          )}
     </>
   );
 }
