@@ -6,7 +6,8 @@ function App() {
   const [peliculas, setPeliculas] = useState([]);
   const [text, setText] = useState("");
   const [input, setInput] = useState("");
-  const [detalles, setDetalles] = useState(false)
+  const [detalles, setDetalles] = useState(true);
+  const [detallePelicula, setDetallePelicula] = useState({});
 
   useEffect(() => {
     if (input.trim() === "") return;
@@ -27,9 +28,14 @@ function App() {
     setText(event.target.value);
   };
 
-  const verDetalles = () => {
-    setDetalles(true);
-  }; 
+  const verDetalles = (programaDetail) => {
+    setDetalles((prevDetalle) => !prevDetalle); // Alternar el valor de detalles
+    console.log(programaDetail);
+  };
+
+  const verDetallePelicula = () => {
+    setDetallesPelicula();
+  };
 
   return (
     <>
@@ -44,38 +50,49 @@ function App() {
       <div className="div">
         <button onClick={handleClick}>buscar</button>
       </div>
-      
+
       {peliculas.Response === "True" ? (
         <div className="catalogo">
-         {peliculas.Search.map((pelicula, index) => (
-                <div>
-                  <div key={index} className="tarjetas">
-                    
-                    <img className="contenedor-imagen" src={pelicula.Poster} alt={pelicula.Title} />
+          {peliculas.Search.map((pelicula, index) => (
+            <div>
+              <div key={index} className="tarjetas">
+                <img
+                  className="contenedor-imagen"
+                  src={pelicula.Poster}
+                  alt={pelicula.Title}
+                />
 
-                    <div className="informacion">
-                      <h3>
-                        {pelicula.Title} "{pelicula.Year}"
-                      </h3>
+                <div className="informacion">
+                  <h3>
+                    {pelicula.Title} "{pelicula.Year}"
+                  </h3>
 
-                      <button hidden={detalles === true} onClick={verDetalles}>Ver detalles</button>
-                      
-                      {detalles === true && (
-                        <Detalles
-                          Type={pelicula.Type}
-                          imdbID={pelicula.imdbID}
-                        />
-                      )}  
-                    </div>
-                  </div>
+                  {detalles === true && (
+                    <Detalles Type={pelicula.Type} imdbID={pelicula.imdbID} />
+                  )}
+
+                  <button
+                    onClick={() => {
+                      verDetalles({
+                        tipo: pelicula.Type,
+                        imdbID: pelicula.imdbID,
+                      });
+                    }}
+                  >
+                    {detalles ? "Ocultar detalles" : "Ver detalles"}
+                  </button>
                 </div>
-              ))}
+              </div>
+            </div>
+          ))}
         </div>
-        ) : peliculas.Response === "False" && (
+      ) : (
+        peliculas.Response === "False" && (
           <div className="catalogo">
             <h3>No se encontraron peliculas...</h3>
           </div>
-          )}
+        )
+      )}
     </>
   );
 }
