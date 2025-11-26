@@ -3,12 +3,17 @@ import "./App.css";
 import Detalles from "./components/detalles/Detalles";
 
 function App() {
+  /*Listas*/
   const [peliculas, setPeliculas] = useState([]);
+
+  /*Buscador*/
   const [text, setText] = useState("");
   const [input, setInput] = useState("");
+
   const [detalles, setDetalles] = useState(true);
   const [detallePelicula, setDetallePelicula] = useState({});
 
+  /*Listas*/
   useEffect(() => {
     if (input.trim() === "") return;
     fetch(`https://www.omdbapi.com/?s=${input}&page=1&apikey=f0ef6fdc`)
@@ -20,19 +25,21 @@ function App() {
       .catch((err) => console.error(err));
   }, [input]);
 
+  /*Buscador*/
   const handleClick = () => {
     setInput(text);
   };
-
+  /*Buscador*/
   const handleInput = (event) => {
     setText(event.target.value);
   };
 
+  /*Detalles*/
   const verDetalles = (programaDetail) => {
     setDetalles((prevDetalle) => !prevDetalle); // Alternar el valor de detalles
     console.log(programaDetail);
   };
-
+  /*Detalles*/
   const verDetallePelicula = () => {
     setDetallesPelicula();
   };
@@ -43,14 +50,16 @@ function App() {
         <h2>Buscador de Peliculas</h2>
       </div>
 
+      {/*Buscador*/}
       <div className="div">
         <input value={text} onChange={handleInput} />
       </div>
-
+      {/*Buscador*/}
       <div className="div">
         <button onClick={handleClick}>buscar</button>
       </div>
 
+      {/*Listas*/}
       {peliculas.Response === "True" ? (
         <div className="catalogo">
           {peliculas.Search.map((pelicula, index) => (
