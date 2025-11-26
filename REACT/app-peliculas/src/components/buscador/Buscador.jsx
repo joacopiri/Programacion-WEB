@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
 import "./Buscador.css";
 
-function Buscador(props) {
+function Buscador({handleClick, handleInput, text}) {
   return (
     <>
-      <div>
-        <p>BUSCADOR ACA</p>
+      <div className="div">
+        <input value={text} onChange={handleInput} />
+      </div>
+
+      <div className="div">
+        <button onClick={handleClick}>buscar</button>
       </div>
     </>
   );

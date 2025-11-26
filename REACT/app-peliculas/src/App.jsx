@@ -1,48 +1,12 @@
-import { useState, useEffect } from "react";
 import "./App.css";
-import Detalles from "./components/detalles/Detalles";
+import Buscador from "./components/buscador/Buscador";
+import useListas from "./hooks/useLista";
+import useDetalles from "./hooks/useDetalles";
+import Peliculas from "./components/peliculas/Peliculas";
 
 function App() {
-  /*Listas*/
-  const [peliculas, setPeliculas] = useState([]);
-
-  /*Buscador*/
-  const [text, setText] = useState("");
-  const [input, setInput] = useState("");
-
-  const [detalles, setDetalles] = useState(true);
-  const [detallePelicula, setDetallePelicula] = useState({});
-
-  /*Listas*/
-  useEffect(() => {
-    if (input.trim() === "") return;
-    fetch(`https://www.omdbapi.com/?s=${input}&page=1&apikey=f0ef6fdc`)
-      .then((data) => data.json())
-      .then((response) => {
-        setPeliculas(response);
-        console.log(response);
-      })
-      .catch((err) => console.error(err));
-  }, [input]);
-
-  /*Buscador*/
-  const handleClick = () => {
-    setInput(text);
-  };
-  /*Buscador*/
-  const handleInput = (event) => {
-    setText(event.target.value);
-  };
-
-  /*Detalles*/
-  const verDetalles = (programaDetail) => {
-    setDetalles((prevDetalle) => !prevDetalle); // Alternar el valor de detalles
-    console.log(programaDetail);
-  };
-  /*Detalles*/
-  const verDetallePelicula = () => {
-    setDetallesPelicula();
-  };
+  const { handleClick, handleInput, text, peliculas } = useListas();
+  const { verDetalles, detalles } = useDetalles();
 
   return (
     <>
@@ -50,58 +14,17 @@ function App() {
         <h2>Buscador de Peliculas</h2>
       </div>
 
-      {/*Buscador*/}
-      <div className="div">
-        <input value={text} onChange={handleInput} />
-      </div>
-      {/*Buscador*/}
-      <div className="div">
-        <button onClick={handleClick}>buscar</button>
-      </div>
+      <Buscador
+        handleClick={handleClick}
+        handleInput={handleInput}
+        text={text}
+      />
 
-      {/*Listas*/}
-      {peliculas.Response === "True" ? (
-        <div className="catalogo">
-          {peliculas.Search.map((pelicula, index) => (
-            <div>
-              <div key={index} className="tarjetas">
-                <img
-                  className="contenedor-imagen"
-                  src={pelicula.Poster}
-                  alt={pelicula.Title}
-                />
-
-                <div className="informacion">
-                  <h3>
-                    {pelicula.Title} "{pelicula.Year}"
-                  </h3>
-
-                  {detalles === true && (
-                    <Detalles Type={pelicula.Type} imdbID={pelicula.imdbID} />
-                  )}
-
-                  <button
-                    onClick={() => {
-                      verDetalles({
-                        tipo: pelicula.Type,
-                        imdbID: pelicula.imdbID,
-                      });
-                    }}
-                  >
-                    {detalles ? "Ocultar detalles" : "Ver detalles"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        peliculas.Response === "False" && (
-          <div className="catalogo">
-            <h3>No se encontraron peliculas...</h3>
-          </div>
-        )
-      )}
+      <Peliculas
+        verDetalles={verDetalles}
+        detalles={detalles}
+        peliculas={peliculas}
+      />
     </>
   );
 }

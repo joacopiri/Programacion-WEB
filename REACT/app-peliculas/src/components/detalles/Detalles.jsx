@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "./Detalles.css";
 
 function Detalles(props) {
